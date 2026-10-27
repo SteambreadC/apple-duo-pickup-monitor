@@ -29,7 +29,9 @@
 | `SMTP_PORT` | 可选，默认587；SSL通常465 |
 | `SMTP_SECURITY` | 默认 `starttls`，也支持 `ssl`；禁用明文公网SMTP |
 
-**Gmail 免费邮件示例：**`SMTP_HOST=smtp.gmail.com`、`SMTP_PORT=587`、`SMTP_SECURITY=starttls`，`SMTP_USER` 和 `MAIL_FROM` 填你的发件 Gmail 地址，`SMTP_PASSWORD` 填 Google **应用专用密码**，`MAIL_TO` 填收件地址。可发给自己。Google通常要求先开启两步验证，部分账号不能创建应用密码；参阅 [Google 官方说明](https://support.google.com/accounts/answer/185833)。**不要填 Google 登录密码，也不要把密码发到聊天。** 直接在 GitHub Secrets 页面填写，可随时在 Google 撤销应用密码。
+**Gmail 最简云端配置：**只需两个Secret：`MAIL_TO` 填你的Gmail地址，`SMTP_PASSWORD` 填该账号的 Google **应用专用密码**，即可给自己发邮件。工作流默认使用 `smtp.gmail.com:587` + STARTTLS，发件账号和From默认为 `MAIL_TO`。未填写应用密码前自动暂停邮件渠道，手机监控照常运行。要用不同发件人或其他邮箱服务，再填写上表的SMTP覆盖配置。本地运行仍需配置完整的SMTP环境变量。
+
+Google通常要求先开启两步验证，部分账号不能创建应用密码；参阅 [Google 官方说明](https://support.google.com/accounts/answer/185833)。**不要填 Google 登录密码，也不要把密码发到聊天。** 直接在 GitHub Secrets 页面填写，可随时在 Google 撤销应用密码。
 
 邮件通过已有邮箱的 SMTP 服务发送，不用 ntfy 的付费邮件转发。邮箱服务自身限制与可用性以其规则为准。未配置邮件凭据时只有已配置的手机渠道工作，不能声称邮件已启用。GitHub Actions 自身失败邮件可另外在账号通知设置中启用，它不替代库存邮件。
 
