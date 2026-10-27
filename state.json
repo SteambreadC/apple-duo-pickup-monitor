@@ -4,70 +4,70 @@
   "items": {
     "R003|MK1G4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R003|MK1H4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R072|MK1G4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R072|MK1H4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R077|MK1G4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R077|MK1H4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R090|MK1G4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R090|MK1H4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R100|MK1G4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R100|MK1H4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R106|MK1G4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R106|MK1H4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R134|MK1G4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R134|MK1H4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R339|MK1G4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     },
     "R339|MK1H4LL/A": {
       "delivered": {},
-      "misses": 1
+      "misses": 2
     }
   },
-  "last_success": "2026-10-27T02:55:42.668461+00:00",
+  "last_success": "2026-10-27T03:02:29.772665+00:00",
   "next_check": 0,
   "schema": 1
 }
