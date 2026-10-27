@@ -10,6 +10,8 @@
 - 19:31:01 PDT 的首次Seattle查询、19:31:17的Portland查询中，Pioneer Place R077 Night Sky 512GB返回 `available`、`storePickEligible=true`、`storeSelectionEnabled=true`、`Available Tomorrow`；19:32:21新的随机参数查询已返回 `unavailable`。用户自己的Apple页面也未显示可取。不能证明真实库存持续了多久、有人买走，或能进入结账预约；作为接口短暂信号处理，不宣称成功预约。
 - 19:41:17 PDT 使用交付项目 `monitor.py --dry-run` 重新查询：**available 0 / unavailable 16 / unknown 0**。无通知、无订单操作。
 - 本地自动测试含严格身份匹配、缓存新鲜度、配送字段隔离、两次确认、未知状态、按渠道去重及重试、429/541退避、GitHub状态恢复。通知适配器对本机HTTP服务与SMTP服务完成真实协议测试；Telegram `ok=false`不记成功。
+- GitHub托管Ubuntu运行器19:50:00 PDT实测完整dry-run成功：[运行记录](https://github.com/SteambreadC/apple-duo-pickup-monitor/actions/runs/40440694752)，结果为available 0 / unavailable 16 / unknown 0。
+- 独立审查后修复同一取货日期Tomorrow→Today的重复提醒，并加入每次成功发送后持久化、失败渠道本轮熔断及180秒通知阶段预算；对应回归测试已加入。
 
 ## 必须分开理解的状态
 

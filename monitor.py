@@ -234,8 +234,10 @@ def collect(fetcher=fetch_location, sleeper=time.sleep):
     return observations
 
 
-def process(state, observations, channels, now):
+def process(state, observations, channels, now, checkpoint=None, budget_seconds=180, clock=time.monotonic):
     delivery_errors = False
+    failed_channels = set()
+    deadline = clock() + budget_seconds
     for key, obs in observations.items():
         item = state['items'].setdefault(key, {'misses': 0, 'delivered': {}})
         if obs['status'] == 'unknown':
@@ -248,12 +250,16 @@ def process(state, observations, channels, now):
             continue
         item['misses'] = 0
         # Exclude observation timestamp. Relative date must be normalized across midnight.
-        signature = hashlib.sha256(json.dumps([
-            key, obs['pickup_date'] or obs['pickup_quote'], obs['pickup_quote']
-        ]).encode()).hexdigest()
+        signature = hashlib.sha256(json.dumps([key, obs['pickup_date'] or obs['pickup_quote']]).encode()).hexdigest()
         for name, send in channels.items():
             if item['delivered'].get(name) == signature:
                 continue
+            if name in failed_channels:
+                delivery_errors = True
+                continue
+            if clock() >= deadline:
+                print('Notification time budget reached; remaining channels stay pending.')
+                return True
             try:
                 send(obs)
                 item['delivered'][name] = signature
@@ -261,6 +267,11 @@ def process(state, observations, channels, now):
                 # Never log exception text: SMTP addresses/tokens or provider URLs may be in it.
                 print(f'Notification failed: {name} ({type(exc).__name__})')
                 delivery_errors = True
+                failed_channels.add(name)
+                continue
+            # Persistence errors must stop delivery; do not treat them as provider failures.
+            if checkpoint:
+                checkpoint()
     return delivery_errors
 
 
@@ -341,13 +352,15 @@ def main():
             if obs['status'] == 'available':
                 print(json.dumps(obs, ensure_ascii=False))
         return 1 if errors else 0
-    failed_delivery = process(state, observations, channels, now)
-    health(state, channels, now)
-    if storage:
-        storage.save(state)
-    else:
+    def save():
+        if storage:
+            storage.save(state)
+            return
         dest = Path(args.state); dest.parent.mkdir(parents=True, exist_ok=True)
         temp = dest.with_suffix('.tmp'); temp.write_text(json.dumps(state, indent=2), encoding='utf-8'); temp.replace(dest)
+    failed_delivery = process(state, observations, channels, now, checkpoint=save)
+    health(state, channels, now)
+    save()
     return 1 if errors or failed_delivery else 0
 
 

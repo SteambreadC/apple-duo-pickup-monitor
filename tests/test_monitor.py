@@ -113,9 +113,33 @@ class StateTests(unittest.TestCase):
 
     def test_changed_date_notifies(self):
         m.process(self.state, self.a, self.channels, NOW)
-        a = copy.deepcopy(self.a); a[KEY]['pickup_quote'] = 'Friday at Apple Pioneer Place'
+        a = copy.deepcopy(self.a); a[KEY]['pickup_quote'] = 'Friday at Apple Pioneer Place'; a[KEY]['pickup_date'] = '2026-10-30'
         m.process(self.state, a, self.channels, NOW)
         self.assertEqual(len(self.sent), 2)
+
+    def test_tomorrow_to_today_same_date_does_not_duplicate(self):
+        m.process(self.state, self.a, self.channels, NOW)
+        a = copy.deepcopy(self.a); a[KEY]['pickup_quote'] = 'Today at Apple Pioneer Place'
+        m.process(self.state, a, self.channels, NOW)
+        self.assertEqual(len(self.sent), 1)
+
+    def test_failed_channel_only_attempted_once_per_run_and_success_checkpointed(self):
+        a = copy.deepcopy(self.a)
+        a['R003|' + PART] = {**a[KEY], 'store_id': 'R003', 'store': 'Bellevue Square'}
+        failures = []; checkpoints = []
+        def fail(event):
+            failures.append(event); raise RuntimeError('offline')
+        m.process(self.state, a, {**self.channels, 'mail': fail}, NOW,
+                  checkpoint=lambda: checkpoints.append(copy.deepcopy(self.state)))
+        self.assertEqual(len(failures), 1)
+        self.assertEqual(len(checkpoints), 2)
+        self.assertEqual(sum('phone' in item['delivered'] for item in checkpoints[0]['items'].values()), 1)
+
+    def test_delivery_budget_leaves_unattempted_notifications_pending(self):
+        m.process(self.state, self.a, self.channels, NOW, budget_seconds=0)
+        self.assertEqual(len(self.sent), 0)
+        m.process(self.state, self.a, self.channels, NOW)
+        self.assertEqual(len(self.sent), 1)
 
 
 if __name__ == '__main__':

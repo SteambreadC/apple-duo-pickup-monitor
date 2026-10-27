@@ -21,7 +21,7 @@ jobs:
     # Manual dry runs and notification tests remain usable before activation.
     if: vars.MONITOR_ENABLED == 'true' || github.event_name == 'workflow_dispatch'
     runs-on: ubuntu-latest
-    timeout-minutes: 5
+    timeout-minutes: 10
     steps:
       - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
