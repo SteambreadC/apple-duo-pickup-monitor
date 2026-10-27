@@ -1,8 +1,73 @@
 {
   "failures": 0,
   "health_delivered": {},
-  "items": {},
-  "last_success": null,
+  "items": {
+    "R003|MK1G4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R003|MK1H4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R072|MK1G4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R072|MK1H4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R077|MK1G4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R077|MK1H4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R090|MK1G4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R090|MK1H4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R100|MK1G4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R100|MK1H4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R106|MK1G4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R106|MK1H4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R134|MK1G4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R134|MK1H4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R339|MK1G4LL/A": {
+      "delivered": {},
+      "misses": 1
+    },
+    "R339|MK1H4LL/A": {
+      "delivered": {},
+      "misses": 1
+    }
+  },
+  "last_success": "2026-10-27T02:55:42.668461+00:00",
   "next_check": 0,
   "schema": 1
 }
