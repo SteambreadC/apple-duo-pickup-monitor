@@ -3,16 +3,12 @@
   "health_delivered": {},
   "items": {
     "R003|MK1G4LL/A": {
-      "delivered": {
-        "ntfy": "058a1acc687f5a4c543e366a57f9c96ed70846403e6fe552b9632cb86f613ab0"
-      },
-      "misses": 1
+      "delivered": {},
+      "misses": 2
     },
     "R003|MK1H4LL/A": {
-      "delivered": {
-        "ntfy": "5ef9268c972e9e9b153439d0c64fe1924836950336cb7d458b049fa831e97297"
-      },
-      "misses": 1
+      "delivered": {},
+      "misses": 2
     },
     "R072|MK1G4LL/A": {
       "delivered": {},
@@ -51,10 +47,8 @@
       "misses": 2
     },
     "R106|MK1H4LL/A": {
-      "delivered": {
-        "ntfy": "46fd0d5e878f5dbedb596f7c70a014b02ecf63e8ac83b74d8b1acaac4677e7ab"
-      },
-      "misses": 1
+      "delivered": {},
+      "misses": 2
     },
     "R134|MK1G4LL/A": {
       "delivered": {},
@@ -73,7 +67,7 @@
       "misses": 2
     }
   },
-  "last_success": "2026-11-21T23:58:12.425327+00:00",
+  "last_success": "2026-11-22T06:37:36.555310+00:00",
   "next_check": 0,
   "schema": 1
 }
