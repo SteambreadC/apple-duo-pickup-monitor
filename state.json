@@ -45,8 +45,10 @@
       "misses": 2
     },
     "R106|MK1G4LL/A": {
-      "delivered": {},
-      "misses": 2
+      "delivered": {
+        "ntfy": "46eb7b924e5371e2b0b992350054969e2163e0c8fc668d86808d9bc9d9365252"
+      },
+      "misses": 0
     },
     "R106|MK1H4LL/A": {
       "delivered": {},
