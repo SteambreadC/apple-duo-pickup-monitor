@@ -63,8 +63,10 @@
       "misses": 2
     },
     "R339|MK1G4LL/A": {
-      "delivered": {},
-      "misses": 2
+      "delivered": {
+        "ntfy": "5ac6eb35a1dfdf2564ced44011ce9b2840ffac22b2ffefd19c1ead0d77585ba4"
+      },
+      "misses": 0
     },
     "R339|MK1H4LL/A": {
       "delivered": {},
