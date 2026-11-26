@@ -59,17 +59,15 @@
       "misses": 2
     },
     "R339|MK1G4LL/A": {
-      "delivered": {
-        "ntfy": "c35eaaa0ea544299512d3668d6d2f40ac916e5287f895475c80abee8ee12ae93"
-      },
-      "misses": 1
+      "delivered": {},
+      "misses": 2
     },
     "R339|MK1H4LL/A": {
       "delivered": {},
       "misses": 2
     }
   },
-  "last_success": "2026-11-26T11:33:48.312029+00:00",
+  "last_success": "2026-11-26T20:31:32.441643+00:00",
   "next_check": 0,
   "schema": 1
 }
