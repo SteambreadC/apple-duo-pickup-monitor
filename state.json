@@ -14,7 +14,7 @@
       "delivered": {
         "ntfy": "3f044a75899bad7422b7e42798c5e5388214edaf9de18bb2d9df355a1a2751e3"
       },
-      "misses": 0
+      "misses": 1
     },
     "R072|MK1H4LL/A": {
       "delivered": {},
@@ -48,7 +48,7 @@
       "delivered": {
         "ntfy": "46eb7b924e5371e2b0b992350054969e2163e0c8fc668d86808d9bc9d9365252"
       },
-      "misses": 0
+      "misses": 1
     },
     "R106|MK1H4LL/A": {
       "delivered": {},
@@ -64,7 +64,7 @@
     },
     "R339|MK1G4LL/A": {
       "delivered": {
-        "ntfy": "5ac6eb35a1dfdf2564ced44011ce9b2840ffac22b2ffefd19c1ead0d77585ba4"
+        "ntfy": "c35eaaa0ea544299512d3668d6d2f40ac916e5287f895475c80abee8ee12ae93"
       },
       "misses": 0
     },
@@ -73,7 +73,7 @@
       "misses": 2
     }
   },
-  "last_success": "2026-11-25T19:59:36.552576+00:00",
+  "last_success": "2026-11-26T02:46:28.718081+00:00",
   "next_check": 0,
   "schema": 1
 }
